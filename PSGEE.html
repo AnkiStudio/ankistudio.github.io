@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Anki Studio 更新日志">
     <title>更新日志 - Anki Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #2980b9;
-            --background-color: #f8f9fa;
-            --text-color: #333;
-            --light-blue: #e3f2fd;
-            --border-radius: 8px;
-            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --primary-color: #007aff;
+            --secondary-color: #5ac8fa;
+            --background-color: #f2f2f7;
+            --text-color: #1c1c1e;
+            --light-blue: #e5f2ff;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
         }
 
         body {
-            font-family: 'Noto Sans SC', sans-serif;
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--background-color);
             margin: 0;
             padding: 0;
@@ -29,9 +29,9 @@
         .header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: #fff;
-            padding: 40px 0;
+            padding: 50px 0;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
@@ -39,6 +39,7 @@
             font-size: 36px;
             margin: 0;
             letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .container {
@@ -53,19 +54,19 @@
             padding: 25px;
             box-shadow: var(--box-shadow);
             transition: all 0.3s ease;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .log-entry:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
         }
 
         .log-entry-title {
             font-size: 22px;
             color: var(--primary-color);
             margin-bottom: 15px;
-            font-weight: 700;
+            font-weight: 600;
             border-bottom: 2px solid var(--light-blue);
             padding-bottom: 8px;
         }
@@ -78,7 +79,7 @@
 
         .log-entry ul li {
             padding: 8px 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--light-blue);
             font-size: 16px;
         }
 
@@ -101,8 +102,8 @@
             text-align: center;
             padding: 20px 0;
             font-size: 14px;
-            color: #6c757d;
-            background-color: #e9ecef;
+            color: #8e8e93;
+            background-color: #e5e5ea;
             margin-top: 30px;
         }
 
@@ -124,7 +125,7 @@
             }
 
             .log-entry ul li {
-                font-size: 14px;
+                font-size: 15px;
             }
         }
     </style>
