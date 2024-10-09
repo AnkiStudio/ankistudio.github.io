@@ -9,54 +9,58 @@
             font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
+            background-color: #f7f9fc;
+            color: #333;
+            line-height: 1.6;
         }
 
         h2 {
-            color: #ffffff;
             background-color: #007AFF;
-            padding: 20px;
-            text-align: center;
+            color: #fff;
+            padding: 30px 0;
             margin: 0;
-            font-size: 28px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
         }
 
         .container {
             max-width: 800px;
-            margin: 30px auto;
+            margin: 50px auto;
             padding: 0 20px;
         }
 
         .log-entry {
             background-color: #ffffff;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            padding: 25px 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
+            border-left: 6px solid #007AFF;
         }
 
         .log-entry:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         .log-entry strong {
-            font-size: 18px;
+            font-size: 22px;
             color: #007AFF;
         }
 
         .log-entry ul {
             list-style-type: none;
             padding: 0;
-            margin: 15px 0 0 0;
+            margin: 20px 0 0 0;
         }
 
         .log-entry ul li {
             padding: 10px 0;
-            border-bottom: 1px solid #eaeaea;
-            color: #333;
+            border-bottom: 1px solid #ececec;
+            color: #555;
         }
 
         .log-entry ul li:last-child {
@@ -70,32 +74,33 @@
 
         .footer {
             text-align: center;
-            padding: 20px 0;
+            padding: 25px 0;
             font-size: 14px;
             color: #666;
             background-color: #f0f0f0;
+            margin-top: 40px;
         }
 
         /* Responsive Design */
         @media (max-width: 600px) {
             h2 {
-                font-size: 24px;
-                padding: 15px;
+                font-size: 26px;
+                padding: 20px;
             }
 
             .log-entry {
-                padding: 15px;
+                padding: 20px 25px;
             }
 
             .log-entry strong {
-                font-size: 16px;
+                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
 
-    <h2>更新日志【Anki Studio】</h2>
+    <h2>更新日志</h2>
 
     <div class="container">
 
