@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,13 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            margin: 20px;
+            background-color: #f0f0f0;
         }
 
-        .header {
+        h2 {
             color: #007AFF;
-            border-bottom: 2px solid #007AFF;
+            border-bottom: 2px solid #007AFF;;
             padding-bottom: 5px;
         }
 
@@ -24,54 +25,55 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .update-date {
+        .log-entry p {
             font-size: 18px;
             color: #333;
             margin-bottom: 10px;
         }
 
-        .log-list {
+        .log-entry ul {
             list-style-type: none;
             padding-left: 0;
             font-size: 16px;
         }
 
-        .log-item {
+        .log-entry li {
             padding: 8px 0;
             border-bottom: 1px solid #ddd;
         }
 
-        .log-icon {
+        .log-entry li:last-child {
+            border-bottom: none; /* 最后一项没有底边框 */
+        }
+
+        .log-entry li span {
             font-weight: bold;
-            color: #007BFF;
+            color: #007BFF; /* 蓝色 */
         }
     </style>
 </head>
 <body>
-    <h2 class="header">更新日志</h2>
+    <h2>更新日志</h2>
 
     <div class="log-entry">
-        <p class="update-date">
-            <strong>更新日期:</strong> 2024/10/09
-        </p>
-        <ul class="log-list">
-            <li class="log-item">
-                <span class="log-icon">①</span> 功能升级：添加更新日志公告版面。
-            </li>
+        <p><strong>更新日期:</strong> 2024/10/20</p>
+        <ul>
+            <li><span>①</span> 更新米鹏六套卷客观题198道。</li>
         </ul>
     </div>
 
     <div class="log-entry">
-        <p class="update-date">
-            <strong>更新日期:</strong> 2024/09/23
-        </p>
-        <ul class="log-list">
-            <li class="log-item">
-                <span class="log-icon">①</span> 模拟卷部分：余峰九月模考33题；
-            </li>
-            <li class="log-item">
-                <span class="log-icon">②</span> 模板细节优化。
-            </li>
+        <p><strong>更新日期:</strong> 2024/10/09</p>
+        <ul>
+            <li><span>①</span> 功能升级：添加更新日志公告版。</li>
+        </ul>
+    </div>
+
+    <div class="log-entry">
+        <p><strong>更新日期:</strong> 2024/09/23</p>
+        <ul>
+            <li><span>①</span> 模拟卷部分：余峰九月模考33题；</li>
+            <li><span>②</span> 模板细节优化。</li>
         </ul>
     </div>
 </body>
