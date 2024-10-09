@@ -1,28 +1,78 @@
-<h2 style="color: #4CAF50; font-family: Arial, sans-serif; border-bottom: 2px solid #4CAF50; padding-bottom: 5px;">
-  更新日志
-</h2>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更新日志</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
 
-<div class="log-entry" style="background-color: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-  <p style="font-size: 18px; color: #333; margin-bottom: 10px;">
-    <strong>更新日期:</strong> 2024/10/09
-  </p>
-  <ul style="list-style-type: none; padding-left: 0; font-size: 16px;">
-    <li style="padding: 8px 0; border-bottom: 1px solid #ddd;">
-      <span style="font-weight: bold; color: #007BFF;">①</span> 功能升级：添加更新日志公告版面。
-    </li>
-  </ul>
-</div>
+        .header {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+        }
 
-<div class="log-entry" style="background-color: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-  <p style="font-size: 18px; color: #333; margin-bottom: 10px;">
-    <strong>更新日期:</strong> 2024/09/23
-  </p>
-  <ul style="list-style-type: none; padding-left: 0; font-size: 16px;">
-    <li style="padding: 8px 0; border-bottom: 1px solid #ddd;">
-      <span style="font-weight: bold; color: #007BFF;">①</span> 模拟卷部分：余峰九月模考33题；
-    </li>
-    <li style="padding: 8px 0;">
-      <span style="font-weight: bold; color: #007BFF;">②</span> 模板细节优化。
-    </li>
-  </ul>
-</div>
+        .log-entry {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .update-date {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .log-list {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 16px;
+        }
+
+        .log-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .log-icon {
+            font-weight: bold;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="header">更新日志</h2>
+
+    <div class="log-entry">
+        <p class="update-date">
+            <strong>更新日期:</strong> 2024/10/09
+        </p>
+        <ul class="log-list">
+            <li class="log-item">
+                <span class="log-icon">①</span> 功能升级：添加更新日志公告版面。
+            </li>
+        </ul>
+    </div>
+
+    <div class="log-entry">
+        <p class="update-date">
+            <strong>更新日期:</strong> 2024/09/23
+        </p>
+        <ul class="log-list">
+            <li class="log-item">
+                <span class="log-icon">①</span> 模拟卷部分：余峰九月模考33题；
+            </li>
+            <li class="log-item">
+                <span class="log-icon">②</span> 模板细节优化。
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
