@@ -24,23 +24,20 @@
             padding: 0;
             color: var(--text-color);
             line-height: 1.6;
-                min-width:auto;
         }
 
         .header {
-                        min-width:auto;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 80px;
-            padding: 20px 0;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
 
         .dynamic-island {
-                        min-width:auto;
             background: rgba(255, 255, 255, 0.7);
             border-radius: 50px;
             padding: 12px 24px;
@@ -63,7 +60,8 @@
         }
 
         .container {
-            min-width:auto;
+            max-width: 800px;
+            width: 90%;
             margin: 30px auto;
             padding: 0 20px;
         }
@@ -129,11 +127,16 @@
 
         @media (max-width: 768px) {
             .header {
-                padding: 15px 0;
+                padding: 15px;
             }
 
             h1 {
                 font-size: 18px;
+            }
+
+            .container {
+                width: 95%;
+                padding: 0 10px;
             }
 
             .log-entry {
