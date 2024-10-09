@@ -17,6 +17,10 @@
             --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
         }
 
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--background-color);
@@ -24,7 +28,7 @@
             padding: 0;
             color: var(--text-color);
             line-height: 1.6;
-            min-width:auto;
+            word-wrap: break-word;
         }
 
         .header {
@@ -32,10 +36,11 @@
             justify-content: center;
             align-items: center;
             height: 80px;
-            padding: 20px;
+            padding: 20px 10px;
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            width: 100%;
         }
 
         .dynamic-island {
@@ -62,18 +67,19 @@
 
         .container {
             max-width: 800px;
-            width: 90%;
+            width: 100%;
             margin: 30px auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         .log-entry {
             background-color: #fff;
             border-radius: var(--border-radius);
-            padding: 25px;
+            padding: 20px;
             box-shadow: var(--box-shadow);
             transition: all 0.3s ease;
             margin-bottom: 25px;
+            width: 100%;
         }
 
         .log-entry:hover {
@@ -92,7 +98,7 @@
 
         .log-entry ul {
             list-style-type: none;
-            padding: 0;
+            padding-left: 20px;
             margin: 0;
         }
 
@@ -126,9 +132,19 @@
             margin-top: 30px;
         }
 
+        img, video, iframe {
+            max-width: 100%;
+            height: auto;
+        }
+
+        pre, code {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
         @media (max-width: 768px) {
             .header {
-                padding: 15px;
+                padding: 15px 10px;
             }
 
             h1 {
@@ -136,12 +152,11 @@
             }
 
             .container {
-                width: 95%;
                 padding: 0 10px;
             }
 
             .log-entry {
-                padding: 20px;
+                padding: 15px;
             }
 
             .log-entry-title {
