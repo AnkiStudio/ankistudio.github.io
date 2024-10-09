@@ -1,59 +1,73 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anki Studio 更新日志">
     <title>更新日志 - Anki Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --light-blue: #e3f2fd;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f4f7f9;
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--background-color);
             margin: 0;
             padding: 0;
-            color: #333;
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
         .header {
-            background: linear-gradient(135deg, #4a90e2, #63b3ed);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: #fff;
-            padding: 50px 0;
+            padding: 40px 0;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
             font-family: 'Poppins', sans-serif;
-            font-size: 42px;
+            font-size: 36px;
             margin: 0;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .container {
-            max-width: 900px;
-            margin: 40px auto;
+            max-width: 800px;
+            margin: 30px auto;
             padding: 0 20px;
         }
 
         .log-entry {
             background-color: #fff;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
             transition: all 0.3s ease;
+            margin-bottom: 20px;
         }
 
         .log-entry:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
         .log-entry-title {
-            font-size: 24px;
-            color: #4a90e2;
+            font-size: 22px;
+            color: var(--primary-color);
             margin-bottom: 15px;
             font-weight: 700;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 8px;
         }
 
         .log-entry ul {
@@ -63,8 +77,8 @@
         }
 
         .log-entry ul li {
-            padding: 10px 0;
-            border-bottom: 1px solid #edf2f7;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
             font-size: 16px;
         }
 
@@ -74,22 +88,22 @@
 
         .log-entry ul li span {
             font-weight: 500;
-            color: #4a90e2;
+            color: var(--primary-color);
             margin-right: 8px;
         }
 
         .update-method {
-            background-color: #ebf8ff;
-            border-left: 4px solid #4a90e2;
+            background-color: var(--light-blue);
+            border-left: 4px solid var(--primary-color);
         }
 
         .footer {
             text-align: center;
-            padding: 30px 0;
+            padding: 20px 0;
             font-size: 14px;
-            color: #718096;
-            background-color: #edf2f7;
-            margin-top: 40px;
+            color: #6c757d;
+            background-color: #e9ecef;
+            margin-top: 30px;
         }
 
         @media (max-width: 768px) {
@@ -98,7 +112,7 @@
             }
 
             h1 {
-                font-size: 32px;
+                font-size: 28px;
             }
 
             .log-entry {
@@ -120,46 +134,46 @@
         <h1>Anki Studio 更新日志</h1>
     </header>
 
-    <div class="container">
-        <div class="log-entry update-method">
-            <div class="log-entry-title">更新方法与售后</div>
+    <main class="container">
+        <article class="log-entry update-method">
+            <h2 class="log-entry-title">更新方法与售后</h2>
             <ul>
-                <li><span>①</span> 再次下载卡包即可，不需要删除原有卡包，不影响学习进度和笔记内容；</li>
+                <li><span>①</span> 再次下载卡包即可，不需要删除原有卡包，不影响学习进度和笔记内容。</li>
                 <li><span>②</span> 售后联系与技术支持：QQ3106166292。</li>
             </ul>
-        </div>
+        </article>
 
-        <div class="log-entry">
-            <div class="log-entry-title">第二次更新</div>
+        <article class="log-entry">
+            <h2 class="log-entry-title">第二次更新</h2>
             <ul>
                 <li><span>①</span> 日期：2024/10/25 21:00:00</li>
                 <li><span>②</span> 内容：
                     <ul>
-                        <li>a. 更新肖秀荣讲真题Pro版的2024年真题套卷；</li>
-                        <li>b. 优化模板细节。</li>
+                        <li>a. 更新肖秀荣讲真题Pro版的2024年真题套卷</li>
+                        <li>b. 优化模板细节</li>
                     </ul>
                 </li>
                 <li><span>③</span> 归属：讲真题Pro版和真题集卡包</li>
             </ul>
-        </div>
+        </article>
 
-        <div class="log-entry">
-            <div class="log-entry-title">第一次更新</div>
+        <article class="log-entry">
+            <h2 class="log-entry-title">第一次更新</h2>
             <ul>
                 <li><span>①</span> 日期：2024/09/23 20:00:00</li>
                 <li><span>②</span> 内容：
                     <ul>
-                        <li>a. 新增余峰九月模考卷客观题33道；</li>
-                        <li>b. 优化模板细节。</li>
+                        <li>a. 新增余峰九月模考卷客观题33道</li>
+                        <li>b. 优化模板细节</li>
                     </ul>
                 </li>
                 <li><span>③</span> 归属：模拟卷系列卡包</li>
             </ul>
-        </div>
-    </div>
+        </article>
+    </main>
 
     <footer class="footer">
-        &copy; 2024 Anki Studio - 更新日志
+        <p>&copy; 2024 Anki Studio - 更新日志</p>
     </footer>
 </body>
 </html>
