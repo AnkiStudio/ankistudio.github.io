@@ -4,52 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>更新日志 - Anki Studio</title>
+    <!-- 引入 Google 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f9fc;
+            background: linear-gradient(135deg, #f0f4f8, #d9e6f2);
             color: #333;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         h2 {
-            background-color: #007AFF;
+            background: linear-gradient(45deg, #007AFF, #00BFFF);
             color: #fff;
-            padding: 30px 0;
+            padding: 40px 0;
             margin: 0;
             text-align: center;
-            font-size: 32px;
-            font-weight: bold;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            font-size: 36px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            letter-spacing: 1px;
         }
 
         .container {
-            max-width: 800px;
-            margin: 50px auto;
+            max-width: 100%;
+            margin: 60px auto;
             padding: 0 20px;
         }
 
         .log-entry {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 25px 35px;
-            margin-bottom: 30px;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+          background-color: #fff;
+            border-radius: 16px;
+            padding: 30px 40px;
+            margin-bottom: 35px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            border-left: 8px solid #007AFF;
             transition: all 0.3s ease;
-            border-left: 6px solid #007AFF;
-            min-width:auto;
+            transition: all 0.3s ease;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
         }
 
         .log-entry:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
         }
 
         .log-entry strong {
-            font-size: 22px;
+            font-size: 24px;
             color: #007AFF;
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
 
         .log-entry ul {
@@ -59,8 +67,9 @@
         }
 
         .log-entry ul li {
-            padding: 10px 0;
-            border-bottom: 1px solid #ececec;
+            padding: 12px 0;
+            border-bottom: 1px solid #e3e3e3;
+            font-size: 18px;
             color: #555;
         }
 
@@ -73,41 +82,90 @@
             color: #007BFF;
         }
 
-        .dash-footer {
-            text-align: center;
-            padding: 25px 0;
-            font-size: 14px;
-            color: #666;
-            background-color: #f0f0f0;
-            margin-top: 40px;
+        /* 优雅分隔线 */
+        .log-entry ul li span::before {
+            content: '●';
+            color: #007AFF;
+            font-size: 12px;
+            margin-right: 8px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 600px) {
+        /* Footer 样式 */
+        .dash_footer {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 14px;
+            color: #777;
+            background-color: #f0f0f0;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+        }
+
+        /* 自适应宽度，卡片可以根据屏幕尺寸自适应 */
+        @media (max-width: 1200px) {
+            .log-entry {
+                max-width: 100%;
+                margin: 0 auto 40px auto;
+                padding: 20px;
+            }
+
+            .log-entry strong {
+                font-size: 22px;
+            }
+
+            .log-entry ul li {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
             h2 {
-                font-size: 26px;
+                font-size: 28px;
+                padding: 30px;
+            }
+
+            .log-entry {
+                padding: 20px;
+            }
+
+            .log-entry strong {
+                font-size: 20px;
+            }
+
+            .log-entry ul li {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 24px;
                 padding: 20px;
             }
 
             .log-entry {
-                padding: 20px 25px;
+                padding: 15px;
             }
 
             .log-entry strong {
                 font-size: 18px;
+            }
+
+            .log-entry ul li {
+                font-size: 14px;
             }
         }
     </style>
 </head>
 <body>
 
-    <h2>更新日志</h2>
+    <h2>更新日志【Anki Studio】</h2>
 
     <div class="container">
 
         <!-- 更新方法与售后始终置顶 -->
         <div class="log-entry">
-            <p><strong>更新方法与售后</strong></p>
+            <strong>更新方法与售后</strong>
             <ul>
                 <li><span>①</span> 再次下载卡包即可，不需要删除原有卡包，不影响学习进度和笔记内容；</li>
                 <li><span>②</span> 售后联系与技术支持：QQ3106166292。</li>
@@ -116,7 +174,7 @@
 
         <!-- 更新日志倒序排列 -->
         <div class="log-entry">
-            <p><strong>第二次更新</strong></p>
+            <strong>第二次更新</strong>
             <ul>
                 <li><span>①</span> 日期：2024/10/25 21:00:00</li>
                 <li><span>②</span> 内容：</li>
@@ -129,7 +187,7 @@
         </div>
 
         <div class="log-entry">
-            <p><strong>第一次更新</strong></p>
+            <strong>第一次更新</strong>
             <ul>
                 <li><span>①</span> 日期：2024/09/23 20:00:00</li>
                 <li><span>②</span> 内容：</li>
@@ -143,7 +201,7 @@
 
     </div>
 
-    <div class="dash-footer">
+    <div class="dash_footer">
         &copy; 2024 Anki Studio - 更新日志
     </div>
 
