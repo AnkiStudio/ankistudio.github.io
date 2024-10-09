@@ -4,49 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>更新日志 - Anki Studio</title>
-    <!-- 引入 Google 字体 -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
     <style>
-        h2 {
-            background: linear-gradient(45deg, #007AFF, #00BFFF);
-            color: #fff;
-            padding: 40px 0;
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7f9;
             margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4a90e2, #63b3ed);
+            color: #fff;
+            padding: 50px 0;
             text-align: center;
-            font-size: 36px;
-            font-weight: 700;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            margin: 0;
             letter-spacing: 1px;
         }
 
         .container {
-            min-width:auto;
-            max-width: 100%;
-            margin: 60px auto;
+            max-width: 900px;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
         .log-entry {
-          background-color: #fff;
-            border-radius: 16px;
-            padding: 30px 40px;
-            margin-bottom: 35px;
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-            border-left: 8px solid #007AFF;
             transition: all 0.3s ease;
-            max-width: 900px;
-            margin: 0 auto 40px auto;
         }
 
         .log-entry:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .log-entry strong {
+        .log-entry-title {
             font-size: 24px;
-            color: #007AFF;
-            display: block;
+            color: #4a90e2;
             margin-bottom: 15px;
             font-weight: 700;
         }
@@ -54,14 +59,13 @@
         .log-entry ul {
             list-style-type: none;
             padding: 0;
-            margin: 20px 0 0 0;
+            margin: 0;
         }
 
         .log-entry ul li {
-            padding: 12px 0;
-            border-bottom: 1px solid #e3e3e3;
-            font-size: 18px;
-            color: #555;
+            padding: 10px 0;
+            border-bottom: 1px solid #edf2f7;
+            font-size: 16px;
         }
 
         .log-entry ul li:last-child {
@@ -69,76 +73,40 @@
         }
 
         .log-entry ul li span {
-            font-weight: bold;
-            color: #007BFF;
-        }
-
-        /* 优雅分隔线 */
-        .log-entry ul li span::before {
-            color: #007AFF;
-            font-size: 12px;
+            font-weight: 500;
+            color: #4a90e2;
             margin-right: 8px;
         }
 
-        /* Footer 样式 */
-        .dash_footer {
+        .update-method {
+            background-color: #ebf8ff;
+            border-left: 4px solid #4a90e2;
+        }
+
+        .footer {
             text-align: center;
             padding: 30px 0;
             font-size: 14px;
-            color: #777;
-            background-color: #f0f0f0;
+            color: #718096;
+            background-color: #edf2f7;
             margin-top: 40px;
-            border-top: 1px solid #ddd;
-        }
-
-        /* 自适应宽度，卡片可以根据屏幕尺寸自适应 */
-        @media (max-width: 1200px) {
-            .log-entry {
-                max-width: 100%;
-                margin: 0 auto 40px auto;
-                padding: 20px;
-            }
-
-            .log-entry strong {
-                font-size: 22px;
-            }
-
-            .log-entry ul li {
-                font-size: 16px;
-            }
         }
 
         @media (max-width: 768px) {
-            h2 {
-                font-size: 28px;
-                padding: 30px;
+            .header {
+                padding: 30px 0;
+            }
+
+            h1 {
+                font-size: 32px;
             }
 
             .log-entry {
                 padding: 20px;
             }
 
-            .log-entry strong {
+            .log-entry-title {
                 font-size: 20px;
-            }
-
-            .log-entry ul li {
-                font-size: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h2 {
-                font-size: 24px;
-                padding: 20px;
-            }
-
-            .log-entry {
-                padding: 15px;
-            }
-
-            .log-entry strong {
-                font-size: 18px;
             }
 
             .log-entry ul li {
@@ -148,52 +116,50 @@
     </style>
 </head>
 <body>
-
-    <h2>更新日志【Anki Studio】</h2>
+    <header class="header">
+        <h1>Anki Studio 更新日志</h1>
+    </header>
 
     <div class="container">
-
-        <!-- 更新方法与售后始终置顶 -->
-        <div class="log-entry">
-            <strong>更新方法与售后</strong>
+        <div class="log-entry update-method">
+            <div class="log-entry-title">更新方法与售后</div>
             <ul>
                 <li><span>①</span> 再次下载卡包即可，不需要删除原有卡包，不影响学习进度和笔记内容；</li>
                 <li><span>②</span> 售后联系与技术支持：QQ3106166292。</li>
             </ul>
         </div>
 
-        <!-- 更新日志倒序排列 -->
         <div class="log-entry">
-            <strong>第二次更新</strong>
+            <div class="log-entry-title">第二次更新</div>
             <ul>
                 <li><span>①</span> 日期：2024/10/25 21:00:00</li>
-                <li><span>②</span> 内容：</li>
-                <ul>
-                    <li>a. 更新肖秀荣讲真题Pro版的2024年真题套卷；</li>
-                    <li>b. 优化模板细节。</li>
-                </ul>
+                <li><span>②</span> 内容：
+                    <ul>
+                        <li>a. 更新肖秀荣讲真题Pro版的2024年真题套卷；</li>
+                        <li>b. 优化模板细节。</li>
+                    </ul>
+                </li>
                 <li><span>③</span> 归属：讲真题Pro版和真题集卡包</li>
             </ul>
         </div>
 
         <div class="log-entry">
-            <strong>第一次更新</strong>
+            <div class="log-entry-title">第一次更新</div>
             <ul>
                 <li><span>①</span> 日期：2024/09/23 20:00:00</li>
-                <li><span>②</span> 内容：</li>
-                <ul>
-                    <li>a. 新增余峰九月模考卷客观题33道；</li>
-                    <li>b. 优化模板细节。</li>
-                </ul>
+                <li><span>②</span> 内容：
+                    <ul>
+                        <li>a. 新增余峰九月模考卷客观题33道；</li>
+                        <li>b. 优化模板细节。</li>
+                    </ul>
+                </li>
                 <li><span>③</span> 归属：模拟卷系列卡包</li>
             </ul>
         </div>
-
     </div>
 
-    <div class="dash_footer">
+    <footer class="footer">
         &copy; 2024 Anki Studio - 更新日志
-    </div>
-
+    </footer>
 </body>
 </html>
