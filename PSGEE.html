@@ -194,6 +194,49 @@
             }
 
         }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--light-blue);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:hover {
+            background-color: var(--light-blue);
+        }
+
+        td:first-child {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            th, td {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
     </style>
 </head>
 
@@ -205,6 +248,52 @@
     </header>
 
     <main class="container">
+        <!-- Table -->
+        <article class="log-entry update-method">
+        <h2 class="log-entry-title">试题分布</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>学科/题型</th>
+                    <th>马原</th>
+                    <th>毛中特</th>
+                    <th>史纲</th>
+                    <th>新思想</th>
+                    <th>思法</th>
+                    <th>时政</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>单选题</td>
+                    <td>1~4</td>
+                    <td>5</td>
+                    <td>6~9</td>
+                    <td>10~13</td>
+                    <td>14</td>
+                    <td>15~16</td>
+                </tr>
+                <tr>
+                    <td>多选题</td>
+                    <td>17~21</td>
+                    <td>22</td>
+                    <td>23~26</td>
+                    <td>27~29</td>
+                    <td>30~31</td>
+                    <td>32~33</td>
+                </tr>
+                <tr>
+                    <td>分析题</td>
+                    <td>34</td>
+                    <td>/</td>
+                    <td>35</td>
+                    <td>36</td>
+                    <td>37</td>
+                    <td>38</td>
+                </tr>
+            </tbody>
+        </table>
+        </article>
         <!-- User Guide -->
         <article class="log-entry update-method">
             <h2 class="log-entry-title">User Guide</h2>
@@ -274,9 +363,6 @@
                 </li>
             </ul>
         </article>
-
-
-
         <!-- 第四次更新 -->
         <article class="log-entry">
             <h2 class="log-entry-title">第四次更新</h2>
@@ -302,7 +388,6 @@
                 </li>
             </ul>
         </article>
-
         <!-- 第三次更新 -->
         <article class="log-entry">
             <h2 class="log-entry-title">第三次更新</h2>
@@ -328,8 +413,6 @@
                 </li>
             </ul>
         </article>
-
-
         <!-- 第二次更新 -->
         <article class="log-entry">
             <h2 class="log-entry-title">第二次更新</h2>
@@ -355,7 +438,6 @@
                 </li>
             </ul>
         </article>
-
         <!-- 第一次更新 -->
         <article class="log-entry">
             <h2 class="log-entry-title">第一次更新</h2>
@@ -382,12 +464,7 @@
                 </li>
             </ul>
         </article>
-
-
-
-
     </main>
-
     <footer class="dash_footer">
         <p>&copy; 2024 Anki Studio（From 2019 to 2024） </p>
     </footer>
