@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>模拟卷列表</title>
-    <style>
+       <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 1000px;
+            max-width: 100%;
             margin: 0 auto;
             padding: 20px;
+            font-size: 16px;
         }
         table {
             width: 100%;
@@ -24,8 +25,9 @@
         }
         th, td {
             padding: 15px;
-            text-align: center;
+            text-align: left;
             border-bottom: 1px solid #ddd;
+            font-size: 0.9em;
         }
         th {
             background-color: #e5f2ff;
@@ -45,14 +47,33 @@
         a {
             color: #c24f4a;
             text-decoration: none;
+            word-break: break-all;
         }
         a:hover {
             text-decoration: underline;
         }
         @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
             th, td {
                 padding: 10px;
-                font-size: 14px;
+                font-size: 0.8em;
+            }
+            table {
+                font-size: 0.9em;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                font-size: 12px;
+            }
+            th, td {
+                padding: 8px;
+                font-size: 0.7em;
+            }
+            table {
+                font-size: 0.8em;
             }
         }
     </style>
