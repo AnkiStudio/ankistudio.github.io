@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anki Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f7;
+        }
+
+        .nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #d2d2d7;
+        }
+
+        .nav-content {
+            max-width: 980px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 22px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 600;
+            color: #1d1d1f;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-link {
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .nav-link:hover {
+            opacity: 1;
+        }
+
+        .hero {
+            margin-top: 48px;
+            height: 690px;
+            background: #fbfbfd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-image: url('/api/placeholder/1200/800');
+            background-size: cover;
+            background-position: center;
+            color: #1d1d1f;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            line-height: 1.07143;
+            font-weight: 600;
+            letter-spacing: -.005em;
+            margin-bottom: 6px;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            line-height: 1.10722;
+            font-weight: 400;
+            letter-spacing: .004em;
+            margin-bottom: 24px;
+        }
+
+        .grid-section {
+            max-width: 1440px;
+            margin: 12px auto;
+            padding: 0 12px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .grid-item {
+            height: 580px;
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 40px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            background-size: cover;
+            background-position: center;
+            color: #1d1d1f;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.02);
+        }
+
+        .grid-item h3 {
+            font-size: 40px;
+            line-height: 1.1;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .grid-item p {
+            font-size: 21px;
+            line-height: 1.2381;
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+
+        .cta-link {
+            color: #2997ff;
+            text-decoration: none;
+            font-size: 17px;
+            line-height: 1.21053;
+            font-weight: 400;
+            transition: opacity 0.3s;
+        }
+
+        .cta-link:hover {
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .grid-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .hero h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#" class="logo">Anki Studio</a>
+            <div class="nav-links">
+                <a href="#politics" class="nav-link">考研政治</a>
+                <a href="#english" class="nav-link">考研英语</a>
+                <a href="#civil" class="nav-link">公务员考试</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>革新你的学习方式</h1>
+        <h2>用科学的记忆方法，提升学习效率</h2>
+        <a href="#learn-more" class="cta-link">了解更多 ></a>
+    </section>
+
+    <section class="grid-section">
+        <div class="grid-item" style="background-image: url('/api/placeholder/600/800');">
+            <h3>考研政治</h3>
+            <p>系统化复习 马原、毛中特、史纲、思修</p>
+            <a href="#politics" class="cta-link">立即开始学习 ></a>
+        </div>
+        <div class="grid-item" style="background-image: url('/api/placeholder/600/800');">
+            <h3>考研英语</h3>
+            <p>词汇、阅读、写作 全方位提升</p>
+            <a href="#english" class="cta-link">探索课程 ></a>
+        </div>
+        <div class="grid-item" style="background-image: url('/api/placeholder/600/800');">
+            <h3>公务员考试</h3>
+            <p>行测申论 科学备考</p>
+            <a href="#civil" class="cta-link">开启备考之旅 ></a>
+        </div>
+    </section>
+</body>
+</html>
