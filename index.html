@@ -1,16 +1,943 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=product.html">
-    <title>重定向到产品页面</title>
-    <script>
-        window.location.href = "PSGEE.html";
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anki Studio官方网站">
+    <title>Anki Studio</title>
+    <style>
+        :root {
+            --primary-color: #007aff;
+            --secondary-color: #5ac8fa;
+            --background-color: #f2f2f7;
+            --text-color: #1c1c1e;
+            --light-blue: #e5f2ff;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        @font-face {
+            font-family: 'LXGW';
+            src: url('Fonts0505.ttf') format('ttf');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        article {
+            min-width: auto;
+            display: inline-block;
+        }
+
+        body {
+
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+            padding: 20px 10px;
+
+
+            width: 100%;
+        }
+
+        .dynamic-island {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50px;
+            padding: 12px 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .dynamic-island:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+
+            font-size: 20px;
+            margin: 0;
+            color: var(--primary-color);
+            letter-spacing: 0.5px;
+        }
+
+        .custom-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-link:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .log-entry {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+            width: 100%;
+        }
+
+        .log-entry:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .log-entry-title {
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+            border-bottom: 2px solid var(--light-blue);
+            padding-bottom: 8px;
+        }
+
+        .log-entry ul {
+            list-style-type: none;
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .log-entry ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--light-blue);
+            font-size: 16px;
+        }
+
+        .log-entry ul li:last-child {
+            border-bottom: none;
+        }
+
+        .log-entry ul li span {
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-right: 8px;
+        }
+
+        .update-method {
+            background-color: var(--light-blue);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .dash_footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+            color: #8e8e93;
+            background-color: #e5e5ea;
+            margin-top: 30px;
+        }
+
+        img,
+        video,
+        iframe {
+            max-width: 100%;
+            height: auto;
+        }
+
+        pre,
+        code {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 10px;
+            }
+
+            h1 {
+                font-size: 18px;
+            }
+
+            .container {
+                padding: 0 10px;
+                min-width: auto;
+            }
+
+            .log-entry {
+                padding: 15px;
+            }
+
+            .log-entry-title {
+                font-size: 20px;
+            }
+
+            .log-entry ul li {
+                font-size: 15px;
+            }
+
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--light-blue);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:hover {
+            background-color: var(--light-blue);
+        }
+
+        td:first-child {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+
+            th,
+            td {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <p>如果没有自动跳转，请<a href="PSGEE.html">点击这里</a></p>
+    <header class="header">
+        <div class="dynamic-island">
+            <h1>Release Notes</h1>
+
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="log-entry update-method">
+            <h2 class="log-entry-title">Notice</h2>
+            <ul>
+                <!-- <li><span>📢</span>记得去网上确认，看报考点的网报公告~</li> -->
+                <li><span>📢</span>赠品中的腿姐背诵手册下篇中的马原原理可以提前背一下，其他的倒是无所谓；</li>
+                <li><span>📢</span>所有数据均存储本地设备中，无法远程推送任何更新；</li>
+                <li><span>📢</span>购买后请及时加入售后QQ群727247076获取更新进度通知；</li>
+                <li><span>📢</span>25版肖秀荣手册已更新完毕【190题官方解析已于11月02日21：30分匹配完毕】；</li>
+                <li><span>📢</span>往年（即24年以前的）购买政治卡包的用户，必须通过联系售后QQ3106166292获取更新，如不按此提示私自下载卡包而引起后续的密钥失效、进度丢失的问题自行负责。</li>
+
+        </article>
+        <!-- Table -->
+           <!--    <article class="log-entry update-method">
+            <h2 class="log-entry-title">试题分布（参考24真题）
+            </h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>学科/题型</th>
+                        <th>马原</th>
+                        <th>毛中特</th>
+                        <th>新思想</th>
+                        <th>史纲</th>
+                        <th>思法</th>
+                        <th>时政</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>单选题</td>
+                        <td>1~4</td>
+                        <td>5</td>
+                        <td>6~9</td>
+                        <td>10~13</td>
+                        <td>14</td>
+                        <td>15~16</td>
+                    </tr>
+                    <tr>
+                        <td>多选题</td>
+                        <td>17~21</td>
+                        <td>22</td>
+                        <td>23~26</td>
+                        <td>27~29</td>
+                        <td>30~31</td>
+                        <td>32~33</td>
+                    </tr>
+                    <tr>
+                        <td>分析题</td>
+                        <td>34</td>
+                        <td>/</td>
+                        <td>35</td>
+                        <td>36</td>
+                        <td>37</td>
+                        <td>38</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+        <!-- User Guide -->
+        <article class="log-entry update-method">
+            <h2 class="log-entry-title">User Guide</h2>
+            <ul>
+                <li><span>①</span> 更新的方法：再次下载卡包即可，不需要删除原有卡包，不影响学习进度和笔记内容【原版用户需启用合并模板和始终更新模板这两个导入选项】;</li>
+                <li><span>②</span> 售后与试用：QQ群727247076;</li>
+                <li><span>③</span> 技术与售前：QQ3106166292;</li>
+                <li><span>④</span> 状态与提示：当按钮颜色转至红色时，表明公告内容有更新（每次进入卡包的时候，会自动抓取最新的公告内容）。</li>
+            </ul>
+        </article>
+
+        <!-- Notice -->
+         <!-- 第二十次更新 -->
+         <article class="log-entry">
+            <h2 class="log-entry-title">第二十次更新【模拟卷&时政系列】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/11/19 12:00</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：肖时政已全更；肖八苏一客观题解析前四套已更新；米六/余六/徐六等均已更新；
+                        </li>
+        
+                        </li>
+
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于模拟卷与时政知识点卡包</li>
+                    </ul>
+                </li>
+         
+
+            </ul>
+        </article>
+         <!-- 第十九次更新 -->
+         <article class="log-entry">
+            <h2 class="log-entry-title">第十九次更新【肖秀荣背诵手册】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/11/06 18:00</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 勘误：请加售后群850191971获取勘误内容；
+                        </li>
+        
+                        <li>b. 对象：本次更新针对所有背诵手册卡包；
+                        </li>
+
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于背诵手册系列卡包</li>
+                    </ul>
+                </li>
+         
+
+            </ul>
+        </article>
+         <!--第十八次更新  -->
+         <article class="log-entry">
+            <h2 class="log-entry-title">第十八次更新【肖秀荣背诵手册】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/11/02 21:30</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：肖秀荣手册190题官方解析（只有43道题目有官方解析）；
+                        </li>
+        
+                        <li>b. 对象：本次更新针对所有背诵手册卡包；
+                        </li>
+
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于背诵手册系列卡包</li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 如何更新：
+                    <ul>
+                        <li>
+                            同以前一样更新，不会的看前面的更新日志相关内容。
+                        </li>
+                        <!-- <li>b.预计10月21日晚上更新完毕，在更新期间，请不要编辑修改卡片内容，避免导致卡片内容迭代更新失败；</li> -->
+
+                    </ul>
+                </li>
+
+            </ul>
+        </article>
+         <!-- 第十七次更新 -->
+         <article class="log-entry">
+            <h2 class="log-entry-title">第十七次更新【模拟卷与背诵手册】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/11/01 23:00</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：腿姐背诵手册完结；
+                        </li>
+                        <li>b. 修正：腿八官方勘误+米鹏六套卷官方勘误；
+                        </li>
+                        <li>c. 对象：本次更新针对部分肖1000题用户（Ultra/Pro版）以及全部的肖秀荣手册用户【以上仅限于今年购买的】和全部模拟卷卡包用户；
+                        </li>
+
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于背诵手册系列卡包与模拟卷卡包</li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 如何更新：
+                    <ul>
+                        <li>
+                            同以前一样更新，不会的看前面的更新日志相关内容。
+                        </li>
+                        <!-- <li>b.预计10月21日晚上更新完毕，在更新期间，请不要编辑修改卡片内容，避免导致卡片内容迭代更新失败；</li> -->
+
+                    </ul>
+                </li>
+
+            </ul>
+        </article>
+        <!-- 第十六次更新 -->
+        <article class="log-entry">
+            <h2 class="log-entry-title">第十六次更新【腿姐背诵手册与肖手册带背挖空版】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/10/24 05:30</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：腿姐手册马原部分全部内容，下次将于周末更新全部内容（肖手册带背挖空版将以日更【带背发布后的次日12点】的频率进行更新，不再另外发布通知）；
+                        </li>
+                        <li>b. 对象：本次更新针对部分肖1000题用户（Ultra/Pro版）以及全部的肖秀荣手册用户【以上仅限于今年购买的】；
+                        </li>
+
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于背诵手册系列卡包</li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 如何更新：
+                    <ul>
+                        <li>
+                            同以前一样更新，不会的看前面的更新日志相关内容。
+                        </li>
+                        <!-- <li>b.预计10月21日晚上更新完毕，在更新期间，请不要编辑修改卡片内容，避免导致卡片内容迭代更新失败；</li> -->
+
+                    </ul>
+                </li>
+
+            </ul>
+        </article>
+        <!-- 第十五次更新 -->
+        <article class="log-entry">
+            <h2 class="log-entry-title">第十五次更新【模拟卷系列】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/10/24 05:30</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 修正：余峰十月莫考卷单选第四题的解析文本问题（原PDF就是错的） </li>
+                        <li>b. 对象：MN 01~04、09~12；花西子计划与SVIP/VIP计划用户。</li>
+
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于模拟卷系列卡包</li>
+                    </ul>
+                </li>
+                <li><span>🔗</span> 购买链接：
+                    <ul>
+                        <li><a href="https://file.ankichinas.cn/card/6716cd7221ef77rf?share_info=dfca28dda4c5ffd4c37e77911d2499eb
+        
+                                    " title="腿姐八套卷" class="custom-link">【点击这里查看模拟卷系列卡包】</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+        <!-- 第十四次更新 -->
+        <article class="log-entry">
+            <h2 class="log-entry-title">第十四次更新【腿姐八套卷】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/10/23 05:30</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：腿姐八套卷 </li>
+                        <li>b. 对象：部分肖1000题用户以及全部的模拟卷用户； </li>
+
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于模拟卷系列卡包</li>
+                    </ul>
+                </li>
+                <li><span>🔗</span> 购买链接：
+                    <ul>
+                        <li><a href="https://file.ankichinas.cn/card/6716cd7221ef77rf?share_info=dfca28dda4c5ffd4c37e77911d2499eb
+
+                            " title="腿姐八套卷" class="custom-link">【点击这里查看腿姐八套卷以及模拟卷系列卡包】</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+        <!-- 第十三次更新 -->
+        <article class="log-entry">
+            <h2 class="log-entry-title">第十三次更新【腿姐背诵手册与肖手册带背挖空版】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/10/23 05:30</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：腿姐背诵手册下篇全部内容+马原部分导论+前两章（面向肖手册Pro版用户额外更新带背至Day 04）；
+                        </li>
+                        <li>b. 对象：本次更新针对部分肖1000题用户（Ultra/Pro版）以及全部的肖秀荣手册用户【以上仅限于今年购买的】；
+                        </li>
+
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于背诵手册系列卡包</li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 如何更新：
+                    <ul>
+                        <li>
+                            同以前一样更新，不会的看前面的更新日志相关内容。
+                        </li>
+                        <!-- <li>b.预计10月21日晚上更新完毕，在更新期间，请不要编辑修改卡片内容，避免导致卡片内容迭代更新失败；</li> -->
+
+                    </ul>
+                </li>
+
+            </ul>
+        </article>
+        <!-- 第十二次更新 -->
+        <article class="log-entry">
+            <h2 class="log-entry-title">第十二次更新【肖秀荣手册】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/10/21 05:30</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：新思想全部内容+190题挖空背诵模式； </li>
+                        <li>b. 修正：修正部分错别字； </li>
+                        <li>c. 提示：后续会迭代190题官方解析，所以暂时不要对190题的卡片进行任何修改（包括但不限于在笔记字段里面键入笔记），否则后续无法无损迭代官方解析。 </li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于背诵手册系列卡包</li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 如何更新：
+                    <ul>
+                        <li>a.简单的一句话就是去原链接再次下载导入就行了，不用删除原有卡包，不影响学习进度。
+                            <br>
+                            【Anymo和Anki记忆卡用户，点击卡牌资源（或资源库）——右上角购物袋——已购资源，找到肖秀荣手册链接，再次下载导入即可】
+                            <br>
+                            【原版Anki用户，下载就不教了，重点说一下导入，导入的时候，有一个导入选项，你把那个更新点一下，打开，然后启用合并笔记模板功能，然后把更新笔记模板那里修改为始终，就修改这两项。切记不要启用导入所有学习进度信息和导入所有牌组预设配置这两个，否则会导致学习进度丢失】。
+                        </li>
+                        <!-- <li>b.预计10月21日晚上更新完毕，在更新期间，请不要编辑修改卡片内容，避免导致卡片内容迭代更新失败；</li> -->
+
+                    </ul>
+                </li>
+                <li><span>🔗</span> 购买链接：
+                    <ul>
+                        <li><a href="https://file.ankichinas.cn/card/66e3cbb47a5625VJ?share_info=5faffb7dd77dd4ffc436ab27874eccb8
+                            " title="背诵手册系列卡包" class="custom-link">【点击这里查看背诵手册系列卡包】</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+        <!-- 第十一次更新 -->
+        <article class="log-entry">
+            <h2 class="log-entry-title">第十一次更新【肖秀荣手册】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/10/19 21:00</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：史纲全部内容； </li>
+                        <li>b. 修正：修正部分错别字； </li>
+                        <li>c. 优化：优化控制按钮的位置（距离顶部75%），以兼容iPad版Anki记忆卡和原版Anki； </li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于背诵手册系列卡包</li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 如何更新：
+                    <ul>
+                        <li>a.简单的一句话就是去原链接再次下载导入就行了，不用删除原有卡包，不影响学习进度。
+                            <br>
+                            【Anymo和Anki记忆卡用户，点击卡牌资源（或资源库）——右上角购物袋——已购资源，找到肖秀荣手册链接，再次下载导入即可】
+                            <br>
+                            【原版Anki用户，下载就不教了，重点说一下导入，导入的时候，有一个导入选项，你把那个更新点一下，打开，然后启用合并笔记模板功能，然后把更新笔记模板那里修改为始终，就修改这两项。切记不要启用导入所有学习进度信息和导入所有牌组预设配置这两个，否则会导致学习进度丢失】。
+                        </li>
+                        <li>b.预计10月21日晚上更新完毕，在更新期间，请不要编辑修改卡片内容，避免导致卡片内容迭代更新失败；</li>
+
+                    </ul>
+                </li>
+                <li><span>🔗</span> 购买链接：
+                    <ul>
+                        <li><a href="https://file.ankichinas.cn/card/66e3cbb47a5625VJ?share_info=5faffb7dd77dd4ffc436ab27874eccb8
+                            " title="背诵手册系列卡包" class="custom-link">【点击这里查看背诵手册系列卡包】</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+        <!-- 第十次更新 -->
+        <article class="log-entry">
+            <h2 class="log-entry-title">第十次更新【肖秀荣手册】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/10/19 05:00</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：思修法基全部内容； </li>
+                        <li>b. 修正：修正部分错别字； </li>
+                        <li>c. 优化：优化控制按钮的位置（距离顶部70%），以兼容iPad版Anki记忆卡和原版Anki； </li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于背诵手册系列卡包</li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 如何更新：
+                    <ul>
+                        <li>a.简单的一句话就是去原链接再次下载导入就行了，不用删除原有卡包，不影响学习进度。
+                            <br>
+                            【Anymo和Anki记忆卡用户，点击卡牌资源（或资源库）——右上角购物袋——已购资源，找到肖秀荣手册链接，再次下载导入即可】
+                            <br>
+                            【原版Anki用户，下载就不教了，重点说一下导入，导入的时候，有一个导入选项，你把那个更新点一下，打开，然后启用合并笔记模板功能，然后把更新笔记模板那里修改为始终，就修改这两项。切记不要启用导入所有学习进度信息和导入所有牌组预设配置这两个，否则会导致学习进度丢失】。
+                        </li>
+                        <li>b.预计10月21日晚上更新完毕，在更新期间，请不要编辑修改卡片内容，避免导致卡片内容迭代更新失败；</li>
+
+                    </ul>
+                </li>
+                <li><span>🔗</span> 购买链接：
+                    <ul>
+                        <li><a href="https://file.ankichinas.cn/card/66e3cbb47a5625VJ?share_info=5faffb7dd77dd4ffc436ab27874eccb8
+                            " title="背诵手册系列卡包" class="custom-link">【点击这里查看背诵手册系列卡包】</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+        <!-- 第九次更新 -->
+        <article class="log-entry">
+            <h2 class="log-entry-title">第九次更新【肖秀荣手册】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/10/18 18:00</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：毛中特全部内容； </li>
+                        <!-- <li>b. 修正：修正上一次更新中，部分卡片的考点难度星级分类错误的问题； </li> -->
+                        <li>b. 优化：优化控制按钮的位置，以兼容iPad版Anki记忆卡和原版Anki； </li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于背诵手册系列卡包</li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 如何更新：
+                    <ul>
+                        <li>a.简单的一句话就是去原链接再次下载导入就行了，不用删除原有卡包，不影响学习进度。
+                            <br>
+                            【Anymo和Anki记忆卡用户，点击卡牌资源（或资源库）——右上角购物袋——已购资源，找到肖秀荣手册链接，再次下载导入即可】
+                            <br>
+                            【原版Anki用户，下载就不教了，重点说一下导入，导入的时候，有一个导入选项，你把那个更新点一下，打开，然后启用合并笔记模板功能，然后把更新笔记模板那里修改为始终，就修改这两项。切记不要启用导入所有学习进度信息和导入所有牌组预设配置这两个，否则会导致学习进度丢失】。
+                        </li>
+                        <li>b.预计10月21日晚上更新完毕，在更新期间，请不要编辑修改卡片内容，避免导致卡片内容迭代更新失败；</li>
+
+                    </ul>
+                </li>
+                <li><span>🔗</span> 购买链接：
+                    <ul>
+                        <li><a href="https://file.ankichinas.cn/card/66e3cbb47a5625VJ?share_info=5faffb7dd77dd4ffc436ab27874eccb8
+                            " title="背诵手册系列卡包" class="custom-link">【点击这里查看背诵手册系列卡包】</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+
+        <!-- 第八次更新 -->
+        <article class="log-entry">
+            <h2 class="log-entry-title">第八次更新【肖秀荣手册】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/10/18 04:30</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：25版肖秀荣背诵手册马原五到八章的内容（也就是马原更完了）+赠品册全部内容（含190题，190题配有原文回顾）； </li>
+                        <li>b. 修正：修正上一次更新中，部分卡片的考点难度星级分类错误的问题； </li>
+                        <li>c. 优化：优化控制按钮的位置，以兼容iPad版Anki记忆卡； </li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于背诵手册系列卡包</li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 如何更新：
+                    <ul>
+                        <li>a.简单的一句话就是去原链接再次下载导入就行了，不用删除原有卡包，不影响学习进度。
+                            <br>
+                            【Anymo和Anki记忆卡用户，点击卡牌资源（或资源库）——右上角购物袋——已购资源，找到肖秀荣手册链接，再次下载导入即可】
+                            <br>
+                            【原版Anki用户，下载就不教了，重点说一下导入，导入的时候，有一个导入选项，你把那个更新点一下，打开，然后启用合并笔记模板功能，然后把更新笔记模板那里修改为始终，就修改这两项。切记不要启用导入所有学习进度信息和导入所有牌组预设配置这两个，否则会导致学习进度丢失】。
+                        </li>
+                        <li>b.预计10月21日晚上更新完毕，在更新期间，请不要编辑修改卡片内容，避免导致卡片内容迭代更新失败；</li>
+
+                    </ul>
+                </li>
+                <li><span>🔗</span> 购买链接：
+                    <ul>
+                        <li><a href="https://file.ankichinas.cn/card/66e3cbb47a5625VJ?share_info=5faffb7dd77dd4ffc436ab27874eccb8
+                            " title="背诵手册系列卡包" class="custom-link">【点击这里查看背诵手册系列卡包】</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+
+
+        <!-- 第七次更新 -->
+
+        <article class="log-entry">
+            <h2 class="log-entry-title">第七次更新【肖秀荣手册】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/10/16 23:00</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：25版肖秀荣背诵手册【马原】前四章内容</li>
+
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于背诵手册系列卡包</li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 注意事项：
+                    <ul>
+                        <li>a.本次更新中的章节难度分级并不准确，明天拿到纸质书后进行更准确的分级；</li>
+                        <li>b.预计10月22日晚上更新完毕，在更新期间，请不要编辑修改卡片内容，避免导致卡片内容迭代更新失败；</li>
+
+                    </ul>
+                </li>
+                <li><span>🔗</span> 购买链接：
+                    <ul>
+                        <li><a href="https://file.ankichinas.cn/card/66e3cbb47a5625VJ?share_info=5faffb7dd77dd4ffc436ab27874eccb8
+                    " title="背诵手册系列卡包" class="custom-link">【点击这里查看背诵手册系列卡包】</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+        <!-- 第六次更新 -->
+        <article class="log-entry">
+            <h2 class="log-entry-title">第六次更新【模拟卷】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/10/12 23:00</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：新东方五套卷客观题165道</li>
+
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于模拟卷系列卡包（MN 01~MN 04和特供版T 01）</li>
+                    </ul>
+                </li>
+                <li><span>🔗</span> 购买链接：
+                    <ul>
+                        <li><a href="https://ankistudio.github.io/product.html" title="模拟卷卡包"
+                                class="custom-link">【点击这里查看模拟卷系列卡包】</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+        <!-- 第五次更新 -->
+        <article class="log-entry">
+            <h2 class="log-entry-title">第五次更新【大纲】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/10/12 11:30</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：【免费卡包】腿姐新大纲10道题</li>
+
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于免费卡包系列</li>
+                    </ul>
+                </li>
+                <li><span>🔗</span> 下载链接：
+                    <ul>
+                        <li><a href="https://file.ankichinas.cn/card/6709e93c56fb6d8e?share_info=b5a73edb3faad12d7b4f0178d8350865"
+                                class="custom-link" title="新大纲卡包">【点击这里免费下载获取】</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+        <!-- 第四次更新 -->
+        <article class="log-entry">
+            <h2 class="log-entry-title">第四次更新【时政知识点】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/10/11 23:00</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：徐涛每月时政（一月~九月）知识点+练习题</li>
+
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于时政知识点集锦卡包</li>
+                    </ul>
+                </li>
+                <li><span>🔗</span> 购买链接：
+                    <ul>
+                        <li><a href="https://file.ankichinas.cn/card/6143e3c76fb85bgN?share_info=01f6e4ecb6843eae30e138e2cec96f34"
+                                class="custom-link" title="时政知识点集锦卡包">【点击这里查看时政知识点集锦卡包】</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+        <!-- 第三次更新 -->
+        <article class="log-entry">
+            <h2 class="log-entry-title">第三次更新【作文预测】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/10/05 23:00</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：2025作文预测系列（石雷鹏20篇+王江涛20篇）【挖空版/英语一+英语二】</li>
+
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于作文预测系列卡包</li>
+                    </ul>
+                </li>
+                <li><span>🔗</span> 购买链接：
+                    <ul>
+                        <li><a href="https://file.ankichinas.cn/card/627b3b6629f4beU2?share_info=91e85e0db9d813b22d80bb4321b398de"
+                                class="custom-link" title="作文预测系列卡包">【点击这里查看作文预测系列卡包】</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+        <!-- 第二次更新 -->
+        <article class="log-entry">
+            <h2 class="log-entry-title">第二次更新【真题集】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/09/25 23:00</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：2025版肖秀荣讲真题(373题/考点分类版)</li>
+
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于真题集卡包</li>
+                    </ul>
+                </li>
+                <li><span>🔗</span> 购买链接：
+                    <ul>
+                        <li><a href="https://file.ankichinas.cn/card/66ed4aab5c485bDI?share_info=f9452197e72544fce410d3be03d399c4"
+                                class="custom-link" title="真题卡包">【点击这里查看真题系列卡包】</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+        <!-- 第一次更新 -->
+        <article class="log-entry">
+            <h2 class="log-entry-title">第一次更新【模拟卷】</h2>
+            <ul>
+                <li><span>📅</span> 时间：2024/09/23 23:00</li>
+                <li><span>📝</span> 内容：
+                    <ul>
+                        <li>a. 新增：余峰九月模考卷客观题33道（原书解析+重点语句高亮）</li>
+                        <li>b. 模板：优化模板细节升级</li>
+                    </ul>
+                </li>
+                <li><span>📚</span> 归属：
+                    <ul>
+                        <li>a. 归属于模拟卷系列卡包（MN 01~MN 04、MN 09~MN 12和特供版T 01）</li>
+                    </ul>
+                </li>
+                <li><span>🔗</span> 购买链接：
+                    <ul>
+                        <li><a href="https://file.ankichinas.cn/card/65d858a0831186dZ?share_info=d266291833f95fe5055d55ad3237a605
+                            " title="模拟卷卡包" class="custom-link">【点击这里查看模拟卷系列卡包】</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+    </main>
+    <footer class="dash_footer">
+        <p>&copy; 2019-2024 Anki Studio 版权所有</p>
+        <p><a href="https://beian.miit.gov.cn/" target="_blank">皖ICP备2024070985号-1</a></p>
+    </footer>
 </body>
+
 </html>
-
-
